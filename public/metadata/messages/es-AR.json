@@ -1,0 +1,14 @@
+{
+  "name": "Adobe Launch",
+  "headline": "Integre su tienda con el sistema de gestión de etiquetas de última generación de Adobe.",
+  "overview": "Adobe Launch es un servicio para monitorear las acciones de los visitantes de su comercio electrónico y se puede usar para crear audiencias de marketing dirigidas, analizar el rendimiento de sus anuncios y comprender cómo se usa su tienda.\\n\\n Con esta aplicación, puede realizar un seguimiento de los eventos de navegación y conversión de acuerdo con las prácticas recomendadas y los estándares de análisis de Adobe mediante la implementación de la etiqueta Adobe Launch en el código de la página. En la página de configuración de la aplicación, deberá ingresar su ID de cuenta de Adobe Launch.",
+  "features": [
+    "Configurar Adobe Experience Platform Launch usando el panel de administración de VTEX",
+    "Enviar eventos de Comercio nativo VTEX"
+  ],
+  "additionalInformation": "La administración de etiquetas, eventos y activadores se realiza directamente a través del lanzamiento de Adobe Experience Platform (https://launch.adobe.com/) después de instalar y configurar la aplicación. Los eventos disponibles de forma predeterminada con la aplicación La implementación se puede consultar en nuestra documentación.",
+  "websiteURL": "https://vtex.com/",
+  "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    }
+}

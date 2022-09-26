@@ -1,0 +1,14 @@
+{
+  "name": "Adobe Launch",
+  "headline": "Integrate your store with Adobe's next-generation tag management system.",
+  "overview": "Adobe Launch is a service for monitoring the actions of your eCommerce visitors and can be used to create targeted marketing audiences, analyze the performance of your ads, and gain understanding of how your store is being used.\\n\\n Using this app, you can track navigation and conversion events in accordance with Adobe's best practices and analytics standards by implementing the Adobe Launch tag in the page's code. On the app's setup page, you will need to enter your Adobe Launch account ID.",
+  "features": [
+    "Configure Adobe Experience Platform Launch using the VTEX admin panel",
+    "Send VTEX native Commerce events"
+  ],
+  "additionalInformation": "The management of tags, events, and triggers is done directly through the Adobe Experience Platform Launch (https://launch.adobe.com/) after installing and configuring the app. The events available by default with the app's implementation can be consulted in our documentation.",
+  "websiteURL": "https://vtex.com/",
+  "support": {
+      "url": "https://support.vtex.com/hc/requests"
+    }
+}
