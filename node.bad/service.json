@@ -1,0 +1,14 @@
+{
+  "memory": 128,
+  "ttl": 10,
+  "timeout": 2,
+  "minReplicas": 1,
+  "maxReplicas": 2,
+  "workers": 1,
+  "routes": {
+    "userData": {
+      "path": "/_v/vtexasia.adobe-launch-pixel/v0/userData",
+      "public": true
+    }
+  }
+}

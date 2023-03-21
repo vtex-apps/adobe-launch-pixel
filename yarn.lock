@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@adobe/adobe-client-data-layer@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@adobe/adobe-client-data-layer/-/adobe-client-data-layer-2.0.2.tgz#48f72acbee0ddbcb4edd4b37143a45a16fd69e0c"
+  integrity sha512-Ah0MoI+RF84G3QCjV8SF0kvPjGCkKhU/tWEe2TpTq/5nuxQy89215A6oOm4WuLv1tIV2kQ4PJooL+0LgcjUb9w==
+  dependencies:
+    lodash "^4.17.15"
+
 "@babel/code-frame@^7.0.0":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.13.tgz#dcfc826beef65e75c50e21d3837d7d95798dd658"
@@ -148,6 +155,11 @@
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@vtex/prettier-config/-/prettier-config-0.1.4.tgz#dc7633c5b511e42673830503d88adde7da17f40a"
   integrity sha512-/rNzJ7R7KZmmcrCS3GFbVhfQRKFYFsDvCyO3Mv+atyILi0dkiELLVHUrbeAV/VaCgEMAGgWB9rdCQRasI3Yy/w==
+
+"@vtex/tsconfig@0.4.4":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@vtex/tsconfig/-/tsconfig-0.4.4.tgz#03fd9a65aabe4820e57a9ef14a01fdda1fab26fd"
+  integrity sha512-aja4GABSbOyAC02TBEHem9ONN01fmKJR70t1+PNCgHGrmSVaLcjjQ7HbU0hhoyp+q7MvRIZznM60tIlntTogNA==
 
 acorn-jsx@^5.2.0:
   version "5.3.1"
@@ -2346,6 +2358,11 @@ yaml@^1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.0.tgz#3b593add944876077d4d683fee01081bd9fff31e"
   integrity sha512-yr2icI4glYaNG+KWONODapy2/jDdMSDnrONSjblABjD9B4Z5LgiircSt8m8sRZFNi08kG9Sm0uSHtEmP3zaEGg==
+
+yarn@^1.22.17:
+  version "1.22.19"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.19.tgz#4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

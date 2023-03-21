@@ -1,7 +1,7 @@
 {
   "name": "adobe-launch-pixel",
   "vendor": "vtexasia",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "title": "adobe launch pixel",
   "description": "adobe launch pixel app",
   "billingOptions": {
@@ -11,12 +11,11 @@
     },
     "free": true,
     "type": "free",
-    "availableCountries": [
-      "*"
-    ]
+    "availableCountries": ["*"]
   },
   "builders": {
     "react": "3.x",
+    "node": "6.x",
     "store": "0.x",
     "pixel": "0.x",
     "docs": "0.x"
@@ -24,17 +23,54 @@
   "dependencies": {
     "vtex.pixel-interfaces": "1.x"
   },
+  "policies": [
+    {
+      "name": "POWER_USER_DS"
+    },
+    {
+      "name": "ADMIN_DS"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "api.vtex.com",
+        "path": "/api/dataentities/"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/api/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{account}}.vtexcommercestable.com.br",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "vbase-read-write"
+    }
+  ],
   "settingsSchema": {
     "title": "adobe-launch-pixel",
     "type": "object",
     "properties": {
       "adobeId_1": {
         "title": "Adobe Experience Platform ID-1",
-        "description": "Enter the First ID from your Adobe Experience Platform. eg, if your script is 'https://assets.adobedtm.com/8s8wwe70yyu7/hui6t3fe6y9o/launch-er45i4b9pp90-development.min.js', then the First ID should be '8s8wwe70yyu7/hui6t3fe6y9o' ",
+        "description": "Enter the First ID from your Adobe Experience Platform. eg, if your script is 'https://assets.adobedtm.com/8s8wwe70yyu7/hui6t3fe6y9o/launch-er45i4b9pp90-development.min.js', then the First ID should be '8s8wwe70yyu7' ",
         "type": "string"
       },
       "adobeId_2": {
         "title": "Adobe Experience Platform ID-2",
+        "description": "Enter the Second ID from your Adobe Experience Platform. eg, if your script is 'https://assets.adobedtm.com/8s8wwe70yyu7/hui6t3fe6y9o/launch-er45i4b9pp90-development.min.js', then the Second ID should be 'hui6t3fe6y9o' ",
+        "type": "string"
+      },
+      "adobeId_3": {
+        "title": "Adobe Experience Platform ID-3",
         "description": "Enter the Second ID from your Adobe Experience Platform. eg, if your script is 'https://assets.adobedtm.com/8s8wwe70yyu7/hui6t3fe6y9o/launch-er45i4b9pp90-development.min.js', then the Second ID should be 'launch-er45i4b9pp90-development.min.js' ",
         "type": "string"
       }
