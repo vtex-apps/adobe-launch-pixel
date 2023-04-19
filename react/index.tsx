@@ -1,7 +1,7 @@
-import axios from 'axios'
 import { canUseDOM } from 'vtex.render-runtime'
 
 import type { PixelMessage } from './typings/events'
+import axios from 'axios'
 
 const requestUserData = async () => {
   const res = await axios.get(
@@ -10,11 +10,112 @@ const requestUserData = async () => {
       withCredentials: true,
     }
   )
-
   return res.data
 }
 
 export async function handleEvents(e: PixelMessage) {
+  const encryption = async (email: string | undefined) => {
+    if (!email) {
+      return
+    }
+    const details: any = await getServiceId()
+    const {serviceId,documentId} = details
+    if (details.isError) return null
+    const configDetails = await saveConfigDetails(
+      'whirlpool',
+      'bf3c199c2470cb477d907b1e0917c17b',
+      documentId
+    )
+    if(configDetails.isError) return;
+    const encryptedDetails: any = await encryptEmail(serviceId, email)
+    if (encryptedDetails.isError) return null
+    return encryptedDetails.encryptedUserEmail
+  }
+
+  const saveConfigDetails = async (
+    serviceName: string,
+    key: string,
+    serviceId: string
+  ) => {
+    const result = await axios
+      .patch(
+        `/api/dataentities/dev_app_encryptor_config/documents/${serviceId}?_schema=v1`,
+        {
+          serviceName: serviceName,
+          secret: JSON.stringify({
+            encryptionKey: key,
+          }),
+        }
+      )
+      .then(res => {
+        return {
+          isError: false,
+          data: res.data,
+        }
+      })
+      .catch(err => {
+        return {
+          isError: true,
+          data: err.response.data,
+        }
+      })
+    return result
+  }
+
+  const encryptEmail = async (serviceId: string, email: string) => {
+    const result = await axios
+      .post(
+        '/encrypter',
+        {
+          service: serviceId,
+          payload: {
+            user: email,
+          },
+          encryptionFields: ['user'],
+          encryptionType: 'AES',
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((res: any) => {
+        return { isError: false, encryptedUserEmail: res.data.user }
+      })
+      .catch((err: any) => {
+        return {
+          isError: true,
+          data: err.response,
+        }
+      })
+
+    return result
+  }
+
+  const getServiceId = async () => {
+    const data = await axios
+      .post(
+        `/api/dataentities/dev_app_encryptor_config/documents/?_schema=v1`,
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((result: any) => {
+        return {
+          isError: false,
+          serviceId: `whirlpool_` + result.data.DocumentId,
+          documentId: result.data.DocumentId
+        }
+      })
+      .catch((error: any) => {
+        return { isError: true, data: error.response.data }
+      })
+    return data
+  }
   switch (e.data.eventName) {
     case 'vtex:pageView': {
       window.adobeDataLayer.push({
@@ -111,13 +212,14 @@ export async function handleEvents(e: PixelMessage) {
           : null,
       })
 
+      const encryptedEmail = await encryption(e.data?.email)
       window.adobeDataLayer.push({
         event: 'userData',
         userData: {
           eventType: 'userData',
           isAuthenticated: e.data.isAuthenticated,
           userId: e.data?.id,
-          userEmail: e.data?.email,
+          userEmail: encryptedEmail ,
           firstName: e.data?.firstName,
           lastName: e.data?.lastName,
           phone: e.data?.phone,
