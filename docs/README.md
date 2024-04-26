@@ -2,6 +2,11 @@
 
 # Adobe Launch
 
+##  ⚠️ Maintenance ⚠️
+*Starting June 1st 2023, this application will no longer be maintained by VTEX.*
+
+---
+
 The VTEX Adobe Launch app is a first party integration to the [Adobe Experience Platform Launch](https://launch.adobe.com/).
 
 ![Getting Started](AL1.png)
